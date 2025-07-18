@@ -1,0 +1,37 @@
+﻿@model DisasterAssistance.Models.UserModel
+@{
+    ViewBag.Title = "Manage";
+}
+
+<h2>@ViewBag.Title.</h2>
+
+<p class="text-success">@ViewBag.StatusMessage</p>
+<div>
+    <h4>Change your account settings</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>First Name</dt>
+        <dd>@Model.First_Name</dd>
+        <dt>Last Name</dt>
+        <dd>@Model.Last_Name</dd>
+        <dt>Email:</dt>
+        <dd>
+            @Model.Email [
+            @Html.ActionLink("Manage", "ManageLogins") ]
+        </dd>       
+        <dt>Address:</dt>
+        <dd>@Model.Address</dd>
+        <dt>City:</dt>
+        <dd>@Model.City</dd>
+        <dt>State:</dt>
+        <dd>@Model.State</dd>
+        <dt>Zip Code:</dt>
+        <dd>@Model.Zip</dd> 
+        <dt>Phone:</dt>
+        <dd>@Model.Phone</dd>
+        <dt>User Type</dt>
+        <dd>@Model.User_Type</dd>
+        <dt>Password:</dt>
+        <dd>[@(Model.Password != null ? Html.ActionLink("Change your password", "ChangePassword") : Html.ActionLink("Create", "SetPassword"))]</dd>
+    </dl>
+</div>

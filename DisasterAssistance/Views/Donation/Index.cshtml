@@ -1,0 +1,51 @@
+﻿@model IEnumerable<DisasterAssistance.Models.DonationModel>
+@{
+    ViewBag.Title = "Donations";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div class="container-fluid">
+    <div class="row" style="margin-bottom: 20px">
+        <div class="col-md-6">@Html.ActionLink("Click here to make a request", "RequestForm", "Request")</div>
+        <div class="col-md-6">@Html.ActionLink("Click here to make a donation", "DonationForm", "Donation")</div>
+    </div>
+    <div>
+        <input type="text" id="search" class="form-control" style="margin-bottom: 10px" placeholder="Type to search">
+        <table class="table" id="table">
+            <tr>
+                <th>Item Name</th>
+                <th>Category</th>
+                <th>Quantity</th>
+                <th>Status</th>
+            </tr>
+            @if (Model != null)
+            {
+                foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.ItemName</td>
+                        <td>@item.Category</td>
+                        <td>@item.Qty</td>
+                        <td>@item.Status</td>
+                    </tr>
+                }
+            }
+        </table>
+    </div>
+    
+</div>
+<script>
+    var rows = $('#table tr');
+    $('#search').keyup(function () {
+        var val = $.trim($(this).val()).replace(/ +/g, ' ').toLowerCase();
+
+        rows.show().filter(function () {
+            var text = $(this).text().replace(/\s+/g, ' ').toLowerCase();
+            return !~text.indexOf(val);
+        }).hide();
+    });
+
+
+</script>

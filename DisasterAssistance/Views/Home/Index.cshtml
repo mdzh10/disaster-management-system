@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Disaster Assistance Program</h1>
+    <p class="lead">The disaster assistance program is a program that allows people to request necessities in their time of need following a natural disaster </p>
+    <p>
+        @Html.ActionLink("Learn more", "About", "Home", null, new {@class= "btn btn-primary btn-lg" })
+    </p>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <h2>Recieving Help</h2>
+        <p>
+            If you or your family are unfortunate enough to be in a life changing natural disaster, and are in need of food, water, or any other necessary suplies,
+            the Disaster Assistance Program maks it simple to request the items that you need.
+        </p>
+        <p><a class="btn btn-default" href="@Url.Action("Index", "Request")">Learn more &raquo;</a></p>
+    </div>
+    <div class="col-md-6">
+        <h2>Donate Items</h2>
+        <p>
+            ]If you are interested in helping people by donating goods for people in need, the Disaster Assistance Program makes it simple to find what items are
+            most needed and offers a simple way to donate.
+        </p>
+        <p><a class="btn btn-default" href="@Url.Action("Index", "Donation")">Learn more &raquo;</a></p>
+    </div>
+</div>

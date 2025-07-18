@@ -1,0 +1,29 @@
+﻿@model DisasterAssistance.Models.DonationModel
+@{
+    ViewBag.Title = "Donation Form";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Donation Form</h2>
+
+<div class="container-fluid">
+    <p>Enter the information for the item you wish to donate.</p>
+
+    @using (Html.BeginForm("AddDonation", "Donation", FormMethod.Post))
+    {
+        <div class="form-group">
+            <label>Item Name</label>
+            @Html.TextBoxFor(m => m.ItemName, new {@class = "form-control"})
+        </div>
+        <div class="form-group">
+            <label>Category</label>
+            @Html.TextBoxFor(m => m.Category, new {@class = "form-control"})
+        </div>
+        <div class="form-group">
+            <label>Quantity</label>
+            @Html.TextBoxFor(m => m.Qty, new {@class = "form-control", @type = "number"})
+        </div>
+        <input type="submit" class="btn btn-primary"/>
+    }
+</div>
+
